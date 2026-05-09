@@ -9,7 +9,7 @@ TalkTrip-AI Schedule Builder (Stage 4-6) 변경 이력
   - generic activity + specific place/sub-location 병합 안정화
 - subsumption 로직 추가 강화 (식당명 구체화 처리)
 - memo 과다 생성 방지 및 정리
-- rule-based travel schedule pipeline **실질적 최종 완성**
+- rule-based travel schedule pipeline 
 
 ## [v4.1] 
 
