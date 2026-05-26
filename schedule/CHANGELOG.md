@@ -2,6 +2,19 @@
 
 TalkTrip-AI Schedule Builder (Stage 4-6) 변경 이력
 
+## [v5.0] - Hybrid Schedule Builder
+
+- Rule-based + Local LLM(Ollama) 하이브리드 파이프라인 도입
+- Rule-based 초안 생성 → LLM Refine 2단계 구조
+- LLM 미사용 시 Rule-based 결과만 안전하게 반환 (graceful fallback)
+- LLM lazy initialization (모듈 import 시 Ollama 연결 방지)
+- LLM 응답 스키마 검증 (`_validate_refined`)
+- 입력 길이 초과 시 LLM 호출 스킵 (`MAX_LLM_INPUT_CHARS`)
+- `json.dumps` 직렬화 안전장치 (`default=str`)
+- Rule-based 함수 시그니처 자동 감지 (`inspect.signature`)
+- 모델명 상수 분리 (`LLM_MODEL_NAME`)
+- main.py에서 process import 별칭 제거하여 NameError 수정
+
 ## [v4.2] 
 
 - 교차 인텐트 장소 병합 로직 대폭 강화 (가장 큰 개선점)
@@ -42,5 +55,4 @@ TalkTrip-AI Schedule Builder (Stage 4-6) 변경 이력
 
 ---
 
-**현재 상태**: rule-based 파이프라인은 **v4.2로 가완성**되었습니다.  
-이후 작업은 하이브리드 구조(LLM post-processing + 장소 API)로 진행 고민중.
+**현재 상태**: **v5.0** — Rule-based(v4.2) + LLM Refine 하이브리드 파이프라인 완성.
